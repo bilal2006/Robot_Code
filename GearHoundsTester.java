@@ -126,19 +126,19 @@ public class GearHoundsTestingCode extends OpMode {
         }*/
 
         if(gamepad2.a) {
+            flipLeft.setPower(-1);
+            flipRight.setPower(1);
+        }else{
             flipLeft.setPower(0);
             flipRight.setPower(0);
-        }else{
-            flipLeft.setPower(1);
-            flipRight.setPower(-1);
         }
 
         if(gamepad2.b) {
+            flipLeft.setPower(1);
+            flipRight.setPower(-1);
+        }else {
             flipLeft.setPower(0);
             flipRight.setPower(0);
-        }else {
-            flipLeft.setPower(-1);
-            flipRight.setPower(1);
         }
     }
 }
