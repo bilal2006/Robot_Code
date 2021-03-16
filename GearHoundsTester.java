@@ -8,42 +8,7 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
-@Autonomous
-public class GearHoundsTestingCodeAuto extends LinearOpMode{
-    private DcMotor leftFront = null;
-    private DcMotor leftBack = null;
-    private DcMotor rightFront = null;
-    private DcMotor rightBack = null;
-    private DcMotor flywheelLeft = null;
-    private DcMotor flywheelRight = null;
-    private DcMotor conveyor = null;
-    private CRServo flipLeft = null;
-    private CRServo flipRight = null;
 
-    @Override
-    public void init() {
-        leftFront = hardwareMap.dcMotor.get("leftFront");
-        leftBack = hardwareMap.dcMotor.get("leftBack");
-        rightFront = hardwareMap.dcMotor.get("rightFront");
-        rightBack = hardwareMap.dcMotor.get("rightBack");
-        flywheelLeft = hardwareMap.dcMotor.get("flywheelLeft");
-        flywheelRight = hardwareMap.dcMotor.get("flywheelRight");
-        conveyor = hardwareMap.dcMotor.get("conveyor");
-        flipLeft = hardwareMap.crservo.get("flipLeft");
-        flipRight = hardwareMap.crservo.get("flipRight");
-
-        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-    }
-    public void runner(){
-        leftBack.DcMotor.RunMode.STOP_AND_RESET_ENCODER;
-        leftBack.setTargetPosition(293);
-        leftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        leftBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        rightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        rightBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-    }
-}
 @TeleOp
 public class GearHoundsTestingCode extends OpMode {
     private DcMotor leftFront = null;
@@ -174,6 +139,17 @@ public class GearHoundsTestingCode extends OpMode {
         }else {
             flipLeft.setPower(0);
             flipRight.setPower(0);
+        }
+    }
+    @Autonomous
+    public class GearhoundsTestingCodeAuto extends LinearOpMode(){
+        public void runner(){
+            leftBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            leftBack.setTargetPosition(293);
+            leftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            leftBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
     }
 }
