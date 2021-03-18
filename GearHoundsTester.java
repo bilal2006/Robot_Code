@@ -33,7 +33,7 @@ public class GearHoundsTestingCodeAuto extends LinearOpMode {
         leftBack.setTargetPosition(293);
         leftFront.setTargetPosition(293);
         rightBack.setTargetPosition(293);
-        rightFront.setTargetPosition(2933);
+        rightFront.setTargetPosition(293);
 
         waitForStart();
 
