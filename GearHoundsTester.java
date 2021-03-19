@@ -30,10 +30,10 @@ public class GearHoundsTestingCodeAuto extends LinearOpMode {
         rightBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        leftBack.setTargetPosition(1000);
-        leftFront.setTargetPosition(1000);
-        rightBack.setTargetPosition(1000);
-        rightFront.setTargetPosition(1000);
+        leftBack.setTargetPosition(1500);
+        leftFront.setTargetPosition(1500);
+        rightBack.setTargetPosition(1500);
+        rightFront.setTargetPosition(1500);
 
         waitForStart();
 
@@ -43,10 +43,10 @@ public class GearHoundsTestingCodeAuto extends LinearOpMode {
         rightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         while(leftFront.getCurrentPosition()<leftFront.getTargetPosition()){
-            leftFront.setPower(0.75);
-            leftBack.setPower(0.75);
-            rightFront.setPower(0.75);
-            rightBack.setPower(0.75);
+            leftFront.setPower(0.9);
+            leftBack.setPower(0.9);
+            rightFront.setPower(0.9);
+            rightBack.setPower(0.9);
         }
         leftBack.setPower(0.0);
         leftFront.setPower(0.0);
