@@ -15,10 +15,6 @@ public class GearHoundsTestingCode extends OpMode {
     private DcMotor leftBack = null;
     private DcMotor rightFront = null;
     private DcMotor rightBack = null;
-    private DcMotor flywheelLeft = null;
-    private DcMotor flywheelRight = null;
-    private DcMotor conveyor = null;
-    private DcMotor flip = null;
 
     @Override
     public void init() {
@@ -26,16 +22,10 @@ public class GearHoundsTestingCode extends OpMode {
         leftBack = hardwareMap.dcMotor.get("leftBack");
         rightFront = hardwareMap.dcMotor.get("rightFront");
         rightBack = hardwareMap.dcMotor.get("rightBack");
-        flywheelLeft = hardwareMap.dcMotor.get("flywheelLeft");
-        flywheelRight = hardwareMap.dcMotor.get("flywheelRight");
-        conveyor = hardwareMap.dcMotor.get("conveyor");
-        flip = hardwareMap.dcMotor.get("flip");
+
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-
-        /*telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
-        telemetry.addData("flipRight Pos:", flipRight.getPosition());*/
 
         telemetry.addLine("Initialization Complete");
         telemetry.addLine("Press Play to Start");
@@ -45,8 +35,7 @@ public class GearHoundsTestingCode extends OpMode {
     @Override
     public void loop() {
         /*telemetry.clearAll();
-        telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
-        telemetry.addData("flipRight Pos:", flipRight.getPosition());
+
         telemetry.update();*/
 
         double px = gamepad1.left_stick_x;
@@ -99,44 +88,5 @@ public class GearHoundsTestingCode extends OpMode {
             leftBack.setPower(-0.5);
         }
 
-        if (gamepad2.right_bumper) {
-            flywheelLeft.setPower(1);
-            flywheelRight.setPower(1);
-        }else {
-            flywheelLeft.setPower(0);
-            flywheelRight.setPower(0);
-        }
-
-        if (gamepad2.left_bumper) {
-            conveyor.setPower(0.75);
-        }else {
-            conveyor.setPower(0);
-        }
-
-        /*if (gamepad2.a) {
-            flipLeft.setPosition(0.4);
-            flipRight.setPosition(0.4);
-        }
-
-        if (gamepad2.b) {
-            flipLeft.setPosition(0);
-            flipRight.setPosition(0);
-        }*/
-
-        if(gamepad2.a) {
-            flip.setPower(0.15);
-            //flipRight.setPower(-1);
-        }else{
-            flip.setPower(0);
-            //flipRight.setPower(0);
-        }
-
-        if(gamepad2.b) {
-            flip.setPower(-0.15);
-            //flipRight.setPower(1);
-        }else {
-            flip.setPower(0);
-            //flipRight.setPower(0);
-        }
     }
 }
